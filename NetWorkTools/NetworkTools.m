@@ -34,7 +34,7 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL *baseUrl = [NSURL URLWithString:@"http://iosapi.itcast.cn/car/"];
+        NSURL *baseUrl = [NSURL URLWithString:@"http://iosapi.itqls.com/car/"];
         
         tools = [[self alloc] initWithBaseURL:baseUrl];
         
@@ -62,9 +62,7 @@
     [self request:POST URLString:urlString parameters:parameters finished:finished];
 }
 
-//获取高端品牌列表
 -(void)acquireHighCarList:(NSString *)accountid finished:(void (^)(id, NSError *))finished {
-    
     
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -75,7 +73,6 @@
     [self request:POST URLString:urlString parameters:parameters finished:finished];
 }
 
-//获取主页车源信息
 -(void)newCarSourceList:(NSString *)accountid finished:(void (^)(id, NSError *))finished {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setValue:accountid forKey:@"accountid"];
@@ -85,14 +82,12 @@
     [self request:POST URLString:urlString parameters:parameters finished:finished];
 }
 
-//车源发布时间判断
 -(void)isCheckPublish:(void (^)(id, NSError *))finished {
     NSString *urlString = @"checkpublish.json.php";
     
     [self request:POST URLString:urlString parameters:nil finished:finished];
 }
 
-//发布寻车时选择品牌
 -(void)fondBandList:(NSString *)accountid finished:(void (^)(id, NSError *))finished {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setValue:accountid forKey:@"accountid"];
@@ -102,7 +97,6 @@
     [self request:POST URLString:urlString parameters:parameters finished:finished];
 }
 
-//车系列表
 -(void)seriesList:(NSString *)brandId accountid:(NSString *)accountid finished:(void (^)(id, NSError *))finished {
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
